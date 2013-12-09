@@ -1,7 +1,8 @@
 #include "settings.h"
 
 Settings::Settings(){
-	m_db_type = e_db_Unknown;
+	m_db_type = e_db_Unknown;\
+	m_db_connected = false;
 }
 
 Settings::~Settings(){

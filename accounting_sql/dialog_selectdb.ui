@@ -30,6 +30,9 @@
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -174,6 +177,9 @@
     </widget>
    </widget>
    <widget class="QWidget" name="tab_sqlite">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <attribute name="title">
      <string>Sqlite</string>
     </attribute>

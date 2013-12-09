@@ -12,3 +12,20 @@ MainWindow::~MainWindow()
 {
 	delete ui;
 }
+
+void MainWindow::on_ExitButton_clicked()
+{
+	/// TODO: Add confirmation
+	close();
+	qApp->quit();
+}
+
+void MainWindow::bindSettings(Settings *inc_settings){
+	if(inc_settings != 0)
+		p_settings = inc_settings;
+}
+
+void MainWindow::show_me(bool flag){
+	if(flag)
+		show();
+}

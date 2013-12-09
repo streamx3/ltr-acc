@@ -68,7 +68,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="ExitButton">
          <property name="text">
           <string>Exit</string>
          </property>

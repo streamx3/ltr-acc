@@ -45,8 +45,10 @@ public:
 	QString getDB_Filename();
 
 private:
+	// For internal logic
 	QMutex			m_qmutex;
 	DB_Type			m_db_type;
+	bool			m_db_connected;
 
 	/// SQL variables
 	QHostAddress	m_db_address;
