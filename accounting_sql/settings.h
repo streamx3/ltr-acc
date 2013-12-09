@@ -4,13 +4,7 @@
 #include <QMutex>
 #include <QMutexLocker>
 #include <QtGlobal>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-#include <qt5/QtNetwork/QHostAddress>
-#else
-#include <qt4/QtNetwork/QHostAddress>
-
-#endif
+#include <QtNetwork/QHostAddress>
 
 enum DB_Type{
 	e_db_Unknown = 0,
