@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	ColumnNames.push_back(QString("когда выслано"));
 	ColumnNames.push_back(QString("Примечания"));
 	ui->tableWidget->setColumnCount(13);
-//	ui->tableWidget->setRowCount(7);
 	ui->tableWidget->setHorizontalHeaderLabels(ColumnNames);
 	ui->tableWidget->setColumnWidth(0,30);
 }

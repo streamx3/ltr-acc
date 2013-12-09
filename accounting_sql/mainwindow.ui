@@ -51,7 +51,7 @@
           <number>0</number>
          </property>
          <property name="columnCount">
-          <number>14</number>
+          <number>0</number>
          </property>
          <attribute name="horizontalHeaderCascadingSectionResizes">
           <bool>false</bool>
@@ -59,24 +59,6 @@
          <attribute name="horizontalHeaderMinimumSectionSize">
           <number>10</number>
          </attribute>
-         <column>
-          <property name="text">
-           <string>id</string>
-          </property>
-         </column>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
-         <column/>
         </widget>
        </item>
       </layout>
