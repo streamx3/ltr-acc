@@ -26,3 +26,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
 	dialog_selectdb.ui \
 	dialog_edit.ui
+
+RESOURCES += \
+    config_res.qrc
