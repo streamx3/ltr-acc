@@ -30,15 +30,6 @@
      <verstretch>1</verstretch>
     </sizepolicy>
    </property>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>641</width>
-      <height>431</height>
-     </rect>
-    </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetMaximumSize</enum>
@@ -133,7 +124,6 @@
       </layout>
      </item>
     </layout>
-   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

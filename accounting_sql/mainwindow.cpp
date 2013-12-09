@@ -32,6 +32,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_ExitButton_clicked()
 {
 	/// TODO: Add confirmation
+    if(mp_db != 0){
+        mp_db->close();
+    }
 	close();
 	qApp->quit();
 }
