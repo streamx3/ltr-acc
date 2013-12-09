@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Book Accounting</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="config_res.qrc">
+    <normaloff>:/images/eye-48.png</normaloff>:/images/eye-48.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
@@ -81,6 +85,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="config_res.qrc"/>
+ </resources>
  <connections/>
 </ui>

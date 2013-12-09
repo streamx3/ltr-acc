@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="config_res.qrc">
+    <normaloff>:/images/eye-48.png</normaloff>:/images/eye-48.png</iconset>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
@@ -240,7 +244,9 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="config_res.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>
