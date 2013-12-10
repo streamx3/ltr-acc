@@ -17,6 +17,7 @@
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -28,90 +29,164 @@ QT_BEGIN_NAMESPACE
 class Ui_Dialog_Edit
 {
 public:
-    QDialogButtonBox *buttonBox;
+    QGridLayout *gridLayout;
     QLabel *label;
-    QLabel *label_2;
+    QDateTimeEdit *dateTimeEdit_order_date;
     QLabel *label_3;
+    QLineEdit *lineEdit_phone;
+    QLabel *label_2;
+    QLineEdit *lineEdit_name;
     QLabel *label_4;
+    QLineEdit *lineEdit_city;
     QLabel *label_5;
+    QSpinBox *spinBox_NP_Dept_No;
     QLabel *label_6;
-    QLabel *label_10;
-    QTextEdit *textEdit;
-    QSpinBox *spinBox;
-    QSpinBox *spinBox_2;
     QLabel *label_7;
-    QCheckBox *checkBox;
-    QCheckBox *checkBox_2;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
-    QSpinBox *spinBox_3;
-    QDateTimeEdit *dateTimeEdit;
-    QLineEdit *lineEdit_3;
+    QCheckBox *checkBox_paid;
+    QDateTimeEdit *dateTimeEdit_paid;
+    QCheckBox *checkBox_sent;
+    QDateTimeEdit *dateTimeEdit_sent;
+    QLabel *label_8;
+    QLineEdit *lineEdit_tracking_number;
+    QLabel *label_10;
+    QTextEdit *textEdit_Remarks;
+    QDialogButtonBox *buttonBox;
+    QSpinBox *spinBox_part1;
+    QSpinBox *spinBox_part2;
 
     void setupUi(QDialog *Dialog_Edit)
     {
         if (Dialog_Edit->objectName().isEmpty())
             Dialog_Edit->setObjectName(QStringLiteral("Dialog_Edit"));
-        Dialog_Edit->resize(400, 362);
-        buttonBox = new QDialogButtonBox(Dialog_Edit);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(10, 330, 381, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Discard|QDialogButtonBox::Save);
+        Dialog_Edit->resize(400, 474);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Dialog_Edit->sizePolicy().hasHeightForWidth());
+        Dialog_Edit->setSizePolicy(sizePolicy);
+        Dialog_Edit->setMaximumSize(QSize(410, 474));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/images/book-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Dialog_Edit->setWindowIcon(icon);
+        gridLayout = new QGridLayout(Dialog_Edit);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         label = new QLabel(Dialog_Edit);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 14, 41, 20));
-        label_2 = new QLabel(Dialog_Edit);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 44, 41, 20));
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        dateTimeEdit_order_date = new QDateTimeEdit(Dialog_Edit);
+        dateTimeEdit_order_date->setObjectName(QStringLiteral("dateTimeEdit_order_date"));
+
+        gridLayout->addWidget(dateTimeEdit_order_date, 0, 1, 1, 5);
+
         label_3 = new QLabel(Dialog_Edit);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(210, 15, 41, 20));
+
+        gridLayout->addWidget(label_3, 0, 6, 1, 2);
+
+        lineEdit_phone = new QLineEdit(Dialog_Edit);
+        lineEdit_phone->setObjectName(QStringLiteral("lineEdit_phone"));
+
+        gridLayout->addWidget(lineEdit_phone, 0, 8, 1, 2);
+
+        label_2 = new QLabel(Dialog_Edit);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
+        lineEdit_name = new QLineEdit(Dialog_Edit);
+        lineEdit_name->setObjectName(QStringLiteral("lineEdit_name"));
+
+        gridLayout->addWidget(lineEdit_name, 1, 1, 1, 9);
+
         label_4 = new QLabel(Dialog_Edit);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(10, 74, 41, 20));
+
+        gridLayout->addWidget(label_4, 2, 0, 1, 1);
+
+        lineEdit_city = new QLineEdit(Dialog_Edit);
+        lineEdit_city->setObjectName(QStringLiteral("lineEdit_city"));
+
+        gridLayout->addWidget(lineEdit_city, 2, 1, 1, 6);
+
         label_5 = new QLabel(Dialog_Edit);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(240, 73, 91, 20));
+
+        gridLayout->addWidget(label_5, 2, 7, 1, 2);
+
+        spinBox_NP_Dept_No = new QSpinBox(Dialog_Edit);
+        spinBox_NP_Dept_No->setObjectName(QStringLiteral("spinBox_NP_Dept_No"));
+
+        gridLayout->addWidget(spinBox_NP_Dept_No, 2, 9, 1, 1);
+
         label_6 = new QLabel(Dialog_Edit);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(10, 104, 41, 20));
-        label_10 = new QLabel(Dialog_Edit);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(10, 170, 51, 20));
-        textEdit = new QTextEdit(Dialog_Edit);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(70, 170, 321, 151));
-        spinBox = new QSpinBox(Dialog_Edit);
-        spinBox->setObjectName(QStringLiteral("spinBox"));
-        spinBox->setGeometry(QRect(60, 100, 52, 27));
-        spinBox_2 = new QSpinBox(Dialog_Edit);
-        spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
-        spinBox_2->setGeometry(QRect(180, 100, 52, 27));
+
+        gridLayout->addWidget(label_6, 3, 0, 1, 1);
+
         label_7 = new QLabel(Dialog_Edit);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(130, 104, 41, 20));
-        checkBox = new QCheckBox(Dialog_Edit);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-        checkBox->setGeometry(QRect(10, 140, 101, 22));
-        checkBox_2 = new QCheckBox(Dialog_Edit);
-        checkBox_2->setObjectName(QStringLiteral("checkBox_2"));
-        checkBox_2->setGeometry(QRect(130, 140, 101, 22));
-        lineEdit = new QLineEdit(Dialog_Edit);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(60, 40, 331, 27));
-        lineEdit_2 = new QLineEdit(Dialog_Edit);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(60, 70, 171, 27));
-        spinBox_3 = new QSpinBox(Dialog_Edit);
-        spinBox_3->setObjectName(QStringLiteral("spinBox_3"));
-        spinBox_3->setGeometry(QRect(340, 70, 52, 27));
-        dateTimeEdit = new QDateTimeEdit(Dialog_Edit);
-        dateTimeEdit->setObjectName(QStringLiteral("dateTimeEdit"));
-        dateTimeEdit->setGeometry(QRect(60, 10, 141, 27));
-        lineEdit_3 = new QLineEdit(Dialog_Edit);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(250, 10, 141, 27));
+
+        gridLayout->addWidget(label_7, 3, 4, 1, 1);
+
+        checkBox_paid = new QCheckBox(Dialog_Edit);
+        checkBox_paid->setObjectName(QStringLiteral("checkBox_paid"));
+
+        gridLayout->addWidget(checkBox_paid, 4, 0, 1, 3);
+
+        dateTimeEdit_paid = new QDateTimeEdit(Dialog_Edit);
+        dateTimeEdit_paid->setObjectName(QStringLiteral("dateTimeEdit_paid"));
+
+        gridLayout->addWidget(dateTimeEdit_paid, 4, 3, 1, 4);
+
+        checkBox_sent = new QCheckBox(Dialog_Edit);
+        checkBox_sent->setObjectName(QStringLiteral("checkBox_sent"));
+
+        gridLayout->addWidget(checkBox_sent, 5, 0, 1, 3);
+
+        dateTimeEdit_sent = new QDateTimeEdit(Dialog_Edit);
+        dateTimeEdit_sent->setObjectName(QStringLiteral("dateTimeEdit_sent"));
+
+        gridLayout->addWidget(dateTimeEdit_sent, 5, 3, 1, 4);
+
+        label_8 = new QLabel(Dialog_Edit);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        gridLayout->addWidget(label_8, 6, 0, 1, 2);
+
+        lineEdit_tracking_number = new QLineEdit(Dialog_Edit);
+        lineEdit_tracking_number->setObjectName(QStringLiteral("lineEdit_tracking_number"));
+
+        gridLayout->addWidget(lineEdit_tracking_number, 6, 2, 1, 8);
+
+        label_10 = new QLabel(Dialog_Edit);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        gridLayout->addWidget(label_10, 7, 0, 1, 1);
+
+        textEdit_Remarks = new QTextEdit(Dialog_Edit);
+        textEdit_Remarks->setObjectName(QStringLiteral("textEdit_Remarks"));
+
+        gridLayout->addWidget(textEdit_Remarks, 7, 2, 1, 8);
+
+        buttonBox = new QDialogButtonBox(Dialog_Edit);
+        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setOrientation(Qt::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        gridLayout->addWidget(buttonBox, 8, 0, 1, 10);
+
+        spinBox_part1 = new QSpinBox(Dialog_Edit);
+        spinBox_part1->setObjectName(QStringLiteral("spinBox_part1"));
+
+        gridLayout->addWidget(spinBox_part1, 3, 1, 1, 3);
+
+        spinBox_part2 = new QSpinBox(Dialog_Edit);
+        spinBox_part2->setObjectName(QStringLiteral("spinBox_part2"));
+
+        gridLayout->addWidget(spinBox_part2, 3, 5, 1, 3);
+
 
         retranslateUi(Dialog_Edit);
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog_Edit, SLOT(accept()));
@@ -122,17 +197,21 @@ public:
 
     void retranslateUi(QDialog *Dialog_Edit)
     {
-        Dialog_Edit->setWindowTitle(QApplication::translate("Dialog_Edit", "Dialog", 0));
+        Dialog_Edit->setWindowTitle(QApplication::translate("Dialog_Edit", "Record edit", 0));
         label->setText(QApplication::translate("Dialog_Edit", "Date", 0));
-        label_2->setText(QApplication::translate("Dialog_Edit", "Nane", 0));
+        dateTimeEdit_order_date->setDisplayFormat(QApplication::translate("Dialog_Edit", "M/d/yy HH:mm", 0));
         label_3->setText(QApplication::translate("Dialog_Edit", "Phone", 0));
+        label_2->setText(QApplication::translate("Dialog_Edit", "Nane", 0));
         label_4->setText(QApplication::translate("Dialog_Edit", "City", 0));
         label_5->setText(QApplication::translate("Dialog_Edit", "Department \342\204\226", 0));
         label_6->setText(QApplication::translate("Dialog_Edit", "Part 1", 0));
-        label_10->setText(QApplication::translate("Dialog_Edit", "Remarks", 0));
         label_7->setText(QApplication::translate("Dialog_Edit", "Part 2", 0));
-        checkBox->setText(QApplication::translate("Dialog_Edit", "Paid", 0));
-        checkBox_2->setText(QApplication::translate("Dialog_Edit", "Sent", 0));
+        checkBox_paid->setText(QApplication::translate("Dialog_Edit", "Paid", 0));
+        dateTimeEdit_paid->setDisplayFormat(QApplication::translate("Dialog_Edit", "M/d/yy HH:mm", 0));
+        checkBox_sent->setText(QApplication::translate("Dialog_Edit", "Sent", 0));
+        dateTimeEdit_sent->setDisplayFormat(QApplication::translate("Dialog_Edit", "M/d/yy HH:mm", 0));
+        label_8->setText(QApplication::translate("Dialog_Edit", "Waybill N.", 0));
+        label_10->setText(QApplication::translate("Dialog_Edit", "Remarks", 0));
     } // retranslateUi
 
 };

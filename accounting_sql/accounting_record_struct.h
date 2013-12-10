@@ -15,9 +15,9 @@ struct accounting_record{
 	unsigned int	np_dept;
 	unsigned short	order_1;
 	unsigned short	order_2;
-	bool			paid;
+	Qt::CheckState	paid;
 	QDateTime		paid_time;
-	bool			sent;
+	Qt::CheckState	sent;
 	QDateTime		sent_time;
 	QString			tracking_number;
 	QString			remarks;

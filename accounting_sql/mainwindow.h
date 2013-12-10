@@ -3,6 +3,7 @@
 
 #include "settings.h"
 #include "dialog_edit.h"
+#include "accounting_record_struct.h"
 
 #include <QtSql>
 #include <QtSql/QSqlDatabase>
@@ -27,10 +28,11 @@ private slots:
 	void on_ExitButton_clicked();
 	void show_me(bool flag);
 
-	void on_pushButton_2_clicked();
+	void on_pushButton_edit_clicked();
 
 protected:
 	void pushDB2table();
+	void pushDB2Container();
 
 private:
 	Ui::MainWindow *ui;
@@ -38,6 +40,10 @@ private:
 	QSqlDatabase *mp_db;
 	QStringList ColumnNames;
 	Dialog_Edit m_dialog_edit;
+	accounting_record m_acc_rec_shared;
+	int m_num_of_records;
+	QList<accounting_record> m_records;
+
 };
 
 #endif // MAINWINDOW_H
