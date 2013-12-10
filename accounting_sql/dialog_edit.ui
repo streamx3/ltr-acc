@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>404</width>
     <height>474</height>
    </rect>
   </property>
@@ -30,10 +30,19 @@
     <normaloff>:/images/book-icon.png</normaloff>:/images/book-icon.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Date</string>
+   <item row="0" column="8" colspan="2">
+    <widget class="QLineEdit" name="lineEdit_phone"/>
+   </item>
+   <item row="7" column="2" colspan="8">
+    <widget class="QTextEdit" name="textEdit_Remarks"/>
+   </item>
+   <item row="6" column="2" colspan="8">
+    <widget class="QLineEdit" name="lineEdit_tracking_number"/>
+   </item>
+   <item row="4" column="3" colspan="4">
+    <widget class="QDateTimeEdit" name="dateTimeEdit_paid">
+     <property name="displayFormat">
+      <string>M/d/yy HH:mm</string>
      </property>
     </widget>
    </item>
@@ -44,78 +53,10 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="6" colspan="2">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>Phone</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="8" colspan="2">
-    <widget class="QLineEdit" name="lineEdit_phone"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Nane</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1" colspan="9">
-    <widget class="QLineEdit" name="lineEdit_name"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_4">
-     <property name="text">
-      <string>City</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1" colspan="6">
-    <widget class="QLineEdit" name="lineEdit_city"/>
-   </item>
-   <item row="2" column="7" colspan="2">
-    <widget class="QLabel" name="label_5">
-     <property name="text">
-      <string>Department №</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="9">
-    <widget class="QSpinBox" name="spinBox_NP_Dept_No"/>
-   </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_6">
      <property name="text">
       <string>Part 1</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="4">
-    <widget class="QLabel" name="label_7">
-     <property name="text">
-      <string>Part 2</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0" colspan="3">
-    <widget class="QCheckBox" name="checkBox_paid">
-     <property name="text">
-      <string>Paid</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="3" colspan="4">
-    <widget class="QDateTimeEdit" name="dateTimeEdit_paid">
-     <property name="displayFormat">
-      <string>M/d/yy HH:mm</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="3">
-    <widget class="QCheckBox" name="checkBox_sent">
-     <property name="text">
-      <string>Sent</string>
      </property>
     </widget>
    </item>
@@ -126,16 +67,6 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="0" colspan="2">
-    <widget class="QLabel" name="label_8">
-     <property name="text">
-      <string>Waybill N.</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="2" colspan="8">
-    <widget class="QLineEdit" name="lineEdit_tracking_number"/>
-   </item>
    <item row="7" column="0">
     <widget class="QLabel" name="label_10">
      <property name="text">
@@ -143,10 +74,85 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="2" colspan="8">
-    <widget class="QTextEdit" name="textEdit_Remarks"/>
+   <item row="6" column="0" colspan="2">
+    <widget class="QLabel" name="label_8">
+     <property name="text">
+      <string>Waybill N.</string>
+     </property>
+    </widget>
    </item>
-   <item row="8" column="0" colspan="10">
+   <item row="4" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkBox_paid">
+     <property name="text">
+      <string>Paid</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Date</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="3">
+    <widget class="QSpinBox" name="spinBox_part1"/>
+   </item>
+   <item row="2" column="9">
+    <widget class="QSpinBox" name="spinBox_NP_Dept_No"/>
+   </item>
+   <item row="3" column="4">
+    <widget class="QLabel" name="label_7">
+     <property name="text">
+      <string>Part 2</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="6">
+    <widget class="QLineEdit" name="lineEdit_city"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>City</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="9">
+    <widget class="QLineEdit" name="lineEdit_name"/>
+   </item>
+   <item row="2" column="7" colspan="2">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Department №</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Nane</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="5" colspan="3">
+    <widget class="QSpinBox" name="spinBox_part2"/>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkBox_sent">
+     <property name="text">
+      <string>Sent</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6" colspan="2">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Phone</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2" colspan="8">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -156,11 +162,49 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1" colspan="3">
-    <widget class="QSpinBox" name="spinBox_part1"/>
-   </item>
-   <item row="3" column="5" colspan="3">
-    <widget class="QSpinBox" name="spinBox_part2"/>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_id">
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>128</red>
+           <green>128</green>
+           <blue>128</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>128</red>
+           <green>128</green>
+           <blue>128</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>190</red>
+           <green>190</green>
+           <blue>190</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

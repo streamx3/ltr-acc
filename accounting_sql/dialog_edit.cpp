@@ -38,6 +38,54 @@ void Dialog_Edit::show_me(bool flag){
 		ui->lineEdit_phone->setText(mp_acc_rec_inoming->phone);
 		ui->lineEdit_city->setText(mp_acc_rec_inoming->city);
 		ui->lineEdit_name->setText(mp_acc_rec_inoming->name);
+        ui->lineEdit_tracking_number->setText("N/A");
+        ui->label_id->setText(QString::number(mp_acc_rec_inoming->id));
+
+        ui->spinBox_part1->setValue(mp_acc_rec_inoming->order_1);
+        ui->spinBox_part2->setValue(mp_acc_rec_inoming->order_2);
+        ui->spinBox_NP_Dept_No->setValue(mp_acc_rec_inoming->np_dept);
+
+        if(mp_acc_rec_inoming->paid == Qt::Unchecked){
+            ui->checkBox_sent->setDisabled(true);
+            ui->dateTimeEdit_sent->setDisabled(true);
+        }
 		show();
 	}
 }
+
+void Dialog_Edit::on_buttonBox_accepted()
+{
+    pullInput2sh_rec();
+    request_recort_push(true);
+}
+
+void Dialog_Edit::pullInput2sh_rec(){
+    if(mp_acc_rec_inoming != 0){
+        //id
+        //Assuming id can not be changed by user
+        //order_date
+        mp_acc_rec_inoming->order_date  = ui->dateTimeEdit_order_date->dateTime();
+        //name
+        mp_acc_rec_inoming->name        = ui->lineEdit_name->text();
+        //phone
+        mp_acc_rec_inoming->phone       = ui->lineEdit_phone->text();
+        //city
+        mp_acc_rec_inoming->city        = ui->lineEdit_city->text();
+        //NP DeptNumber
+        mp_acc_rec_inoming->np_dept     = ui->spinBox_NP_Dept_No->value();
+        //order_1
+        mp_acc_rec_inoming->order_1     = ui->spinBox_part1->value();
+        //order_2
+        mp_acc_rec_inoming->order_2     = ui->spinBox_part2->value();
+        //paid
+        mp_acc_rec_inoming->paid        = ui->checkBox_paid->checkState();
+        //paid time
+        mp_acc_rec_inoming->paid_time   = ui->dateTimeEdit_paid->dateTime();
+        //sent
+        mp_acc_rec_inoming->sent        = ui->checkBox_sent->checkState();
+        //sent time
+        mp_acc_rec_inoming->sent_time   = ui->dateTimeEdit_sent->dateTime();
+        //remarks
+        mp_acc_rec_inoming->remarks     = ui->textEdit_Remarks->toPlainText();
+    }
+};

@@ -21,10 +21,20 @@ public:
 	~Dialog_Edit();
 	void show_me(bool flag);
 
+private slots:
+    void on_buttonBox_accepted();
+
+signals:
+    void request_recort_push(bool flag);
+
+protected:
+    void pullInput2sh_rec();
+
 private:
 	Ui::Dialog_Edit *ui;
 	Settings *p_settings;
 	accounting_record *mp_acc_rec_inoming;
+
 };
 
 #endif // DIALOG_EDIT_H

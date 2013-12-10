@@ -29,7 +29,6 @@ private slots:
 signals:
 	void call_main_window(bool flag);
 
-
 private:
 	Ui::Dialog_SelectDB *ui;
 	Settings *p_settings;
