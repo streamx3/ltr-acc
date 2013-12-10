@@ -21,7 +21,8 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
 	dialog_selectdb.h \
 	dialog_edit.h \
-	settings.h
+	settings.h \
+    accounting_record_struct.h
 
 FORMS    += mainwindow.ui \
 	dialog_selectdb.ui \

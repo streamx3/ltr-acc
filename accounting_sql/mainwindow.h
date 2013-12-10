@@ -2,8 +2,11 @@
 #define MAINWINDOW_H
 
 #include "settings.h"
+#include "dialog_edit.h"
 
+#include <QtSql>
 #include <QtSql/QSqlDatabase>
+#include <QMessageBox>
 #include <QMainWindow>
 
 namespace Ui {
@@ -24,6 +27,8 @@ private slots:
 	void on_ExitButton_clicked();
 	void show_me(bool flag);
 
+	void on_pushButton_2_clicked();
+
 protected:
 	void pushDB2table();
 
@@ -32,6 +37,7 @@ private:
 	Settings *p_settings;
 	QSqlDatabase *mp_db;
 	QStringList ColumnNames;
+	Dialog_Edit m_dialog_edit;
 };
 
 #endif // MAINWINDOW_H

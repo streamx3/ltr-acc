@@ -3,5 +3,14 @@
         <file>images/eye-48.png</file>
         <file>images/eye-32.png</file>
         <file>images/eye-16.png</file>
+        <file>images/book-icon.png</file>
+        <file>images/user-female.png</file>
+        <file>images/database.png</file>
+        <file>images/coins.png</file>
+        <file>images/clock-coin.png</file>
+        <file>images/clock--arrow.png</file>
+        <file>images/box--arrow.png</file>
+        <file>images/document--pencil.png</file>
+        <file>images/mobile-phone.png</file>
     </qresource>
 </RCC>
