@@ -182,26 +182,60 @@ void MainWindow::pushContainer2UI(){
 
 	while (it != m_records.end()){
 		p_record = &(*it);
-		ui->tableWidget->setItem(i, 2,new QTableWidgetItem(p_record->name));
-		ui->tableWidget->setItem(i, 3,new QTableWidgetItem(p_record->phone));
-		ui->tableWidget->setItem(i, 4,new QTableWidgetItem(p_record->city));
-		ui->tableWidget->setItem(i,12,new QTableWidgetItem(p_record->remarks));
 
-		ui->tableWidget->setItem(i, 0,new QTableWidgetItem(QString::number(p_record->id)));
-		ui->tableWidget->setItem(i, 5,new QTableWidgetItem(QString::number(p_record->np_dept)));
-		ui->tableWidget->setItem(i, 6,new QTableWidgetItem(QString::number(p_record->order_1)));
-		ui->tableWidget->setItem(i, 7,new QTableWidgetItem(QString::number(p_record->order_2)));
+		p_tmp_item = new QTableWidgetItem(p_record->name);
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 2, p_tmp_item);
 
-		ui->tableWidget->setItem(i, 1,new QTableWidgetItem(p_record->order_date.toString()));
-		ui->tableWidget->setItem(i, 9,new QTableWidgetItem(p_record->paid_time.toString()));
-		ui->tableWidget->setItem(i,11,new QTableWidgetItem(p_record->sent_time.toString()));
+		p_tmp_item = new QTableWidgetItem(p_record->phone);
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 3, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(p_record->city);
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 4, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(p_record->remarks);
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i,12, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(QString::number(p_record->id));
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 0, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(QString::number(p_record->np_dept));
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 5, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(QString::number(p_record->order_1));
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 6, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(QString::number(p_record->order_2));
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 7, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(p_record->order_date.toString());
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 1, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(p_record->paid_time.toString());
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i, 9, p_tmp_item);
+
+		p_tmp_item = new QTableWidgetItem(p_record->sent_time.toString());
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+		ui->tableWidget->setItem(i,11, p_tmp_item);
+
 
 		p_tmp_item = new QTableWidgetItem(QString(p_record->paid == Qt::Checked ? "" : " "));
 		p_tmp_item->setCheckState(p_record->paid);
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
 		ui->tableWidget->setItem(i,8,p_tmp_item);
 
 		p_tmp_item = new QTableWidgetItem(QString(p_record->paid == Qt::Checked ? "" : " "));
 		p_tmp_item->setCheckState(p_record->sent);
+		p_tmp_item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
 		ui->tableWidget->setItem(i,10,p_tmp_item);
 
 		++i;
@@ -257,7 +291,7 @@ void MainWindow::pushContainer2DB(){
 		// Add
 		else{
 			query.prepare(QString("INSERT INTO ") + db_name +
-										   (" ( order_time,  name,  phone,  city,  np_dept,  order_1,  order_2,  paid,  paid_time,  sent,  sent_time,  remarks)"
+										  (" ( order_time,  name,  phone,  city,  np_dept,  order_1,  order_2,  paid,  paid_time,  sent,  sent_time,  remarks)"
 							  "VALUES (       :order_time, :name, :phone, :city, :np_dept, :order_1, :order_2, :paid, :paid_time, :sent, :sent_time, :remarks)"));
 		}
 		query.bindValue( ":order_time",	p_rec->order_date );
