@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	paid_item->setIcon(*(new QIcon(QString(":/images/coins.png"))));
 	paid_t_item->setIcon(*(new QIcon(QString(":/images/clock-coin.png"))));
 	sent_item->setIcon(*(new QIcon(QString(":/images/box--arrow.png"))));
+	sent_t_item->setIcon(*(new QIcon(QString(":/images/clock--arrow.png"))));
 	notes_item->setIcon(*(new QIcon(QString(":/images/document--pencil.png"))));
 	notes_item->setTextAlignment(Qt::AlignLeft);
 
@@ -47,16 +48,16 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->tableWidget->setHorizontalHeaderItem(12, notes_item);
 
 	ui->tableWidget->setHorizontalHeaderLabels(ColumnNames);
-	ui->tableWidget->setColumnWidth(0,30);
+	ui->tableWidget->setColumnWidth(0,50);
 	ui->tableWidget->setColumnWidth(1,130);
 	ui->tableWidget->setColumnWidth(3,120);
 	ui->tableWidget->setColumnWidth(4,100);
-	ui->tableWidget->setColumnWidth(5,40);
-	ui->tableWidget->setColumnWidth(6,40);
-	ui->tableWidget->setColumnWidth(7,40);
-	ui->tableWidget->setColumnWidth(8,24);
+	ui->tableWidget->setColumnWidth(5,60);
+	ui->tableWidget->setColumnWidth(6,60);
+	ui->tableWidget->setColumnWidth(7,60);
+	ui->tableWidget->setColumnWidth(8,40);
 	ui->tableWidget->setColumnWidth(9,130);
-	ui->tableWidget->setColumnWidth(10,24);
+	ui->tableWidget->setColumnWidth(10,40);
 	ui->tableWidget->setColumnWidth(11,130);
 	ui->tableWidget->setColumnWidth(12,500);
 
@@ -96,7 +97,6 @@ void MainWindow::bindSettings(Settings *inc_settings){
 
 void MainWindow::show_me(bool flag){
 	if(flag){
-//        pushDB2table();
 		pushDB2Container();
 		pushContainer2UI();
 		show();
@@ -196,13 +196,14 @@ void MainWindow::pushContainer2UI(){
 		ui->tableWidget->setItem(i, 9,new QTableWidgetItem(p_record->paid_time.toString()));
 		ui->tableWidget->setItem(i,11,new QTableWidgetItem(p_record->sent_time.toString()));
 
-		p_tmp_item = new QTableWidgetItem("");
+		p_tmp_item = new QTableWidgetItem(QString(p_record->paid == Qt::Checked ? "" : " "));
 		p_tmp_item->setCheckState(p_record->paid);
 		ui->tableWidget->setItem(i,8,p_tmp_item);
 
-		p_tmp_item = new QTableWidgetItem("");
+		p_tmp_item = new QTableWidgetItem(QString(p_record->paid == Qt::Checked ? "" : " "));
 		p_tmp_item->setCheckState(p_record->sent);
 		ui->tableWidget->setItem(i,10,p_tmp_item);
+
 		++i;
 		++it;
 	}
