@@ -40,7 +40,9 @@ void Dialog_Edit::show_me(bool flag){
 		ui->lineEdit_city->setText(mp_acc_rec_inoming->city);
 		ui->lineEdit_name->setText(mp_acc_rec_inoming->name);
 		ui->lineEdit_tracking_number->setText("N/A");
-		ui->label_id->setText(mp_acc_rec_inoming->id > 0 ? QString::number(mp_acc_rec_inoming->id) : "New record");
+		ui->label_id->setText(mp_acc_rec_inoming->id >0 ? QString("id: ")+
+							  QString::number(mp_acc_rec_inoming->id) : "New record");
+		ui->textEdit_Remarks->setText(mp_acc_rec_inoming->remarks);
 
 		ui->spinBox_part1->setValue(mp_acc_rec_inoming->order_1);
 		ui->spinBox_part2->setValue(mp_acc_rec_inoming->order_2);

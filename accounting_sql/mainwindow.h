@@ -34,6 +34,8 @@ private slots:
 
 	void on_pushButton_save_clicked();
 
+	void on_pushButton_delete_clicked();
+
 protected:
 	void pushDB2Container();
 	void pushContainer2UI();
@@ -44,6 +46,7 @@ private:
 	Settings *p_settings;
 	QSqlDatabase *mp_db;
 	QStringList ColumnNames;
+	QVector<quint32> m_delete_requests;
 	Dialog_Edit m_dialog_edit;
 	accounting_record m_acc_rec_shared;
 	int m_num_of_records;

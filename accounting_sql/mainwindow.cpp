@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->tableWidget->setHorizontalHeaderItem(12, notes_item);
 
 	ui->tableWidget->setHorizontalHeaderLabels(ColumnNames);
-	ui->tableWidget->setColumnWidth(0,50);
+	ui->tableWidget->setColumnWidth(0,40);
 	ui->tableWidget->setColumnWidth(1,130);
 	ui->tableWidget->setColumnWidth(3,120);
 	ui->tableWidget->setColumnWidth(4,100);
@@ -112,21 +112,26 @@ void MainWindow::bindDatabase(QSqlDatabase *p_db){
 
 void MainWindow::on_pushButton_edit_clicked()
 {
-	qint32 selected_row = -1;
+	qint32 selected_id = -1;
 	QTableWidgetItem *pItem = 0;
 	QList<QTableWidgetItem *> selecteditems = ui->tableWidget->selectedItems();
 	if(selecteditems.size()){
 		pItem = *(selecteditems.begin());
-		selected_row = pItem->row();
+		selected_id = pItem->row();
+		selected_id = ui->tableWidget->item(selected_id,0)->text().toInt();
 	}
-	if(selected_row > -1 && selected_row < m_records.size()){
+	if(selected_id > 0){
 		QList<accounting_record>::iterator it = m_records.begin();
-		for(qint32 i = 0; i < selected_row; ++i){
-			it++;
+		for(; it != m_records.end() && (*it).id != (quint32)selected_id ; ++it);
+		if( it != m_records.end() ){
+			m_acc_rec_shared = *it;
+			m_dialog_edit.show_me(true);
 		}
-		m_acc_rec_shared = *it;
+	}
+	else if(selected_id == 0){
 		m_dialog_edit.show_me(true);
 	}
+
 }
 
 void MainWindow::pushDB2Container(){
@@ -261,6 +266,9 @@ void MainWindow::pushShared2Container(){
 		m_records.push_back(m_acc_rec_shared);
 	}
 	pushContainer2UI();
+	ui->pushButton_delete->setEnabled(false);
+	ui->pushButton_add->setEnabled(false);
+	ui->pushButton_edit->setEnabled(false);
 }
 
 void MainWindow::pushContainer2DB(){
@@ -309,8 +317,19 @@ void MainWindow::pushContainer2DB(){
 		query.bindValue( ":sent_time",	p_rec->sent_time );
 		query.bindValue( ":remarks",	p_rec->remarks );
 		if(!query.exec()){
-			QMessageBox::critical(0, QObject::tr("Database Error"),
+			QMessageBox::critical(0, QObject::tr("Database Writing Error"),
 					  query.lastError().text());
+		}
+	}
+	quint32 delete_size = m_delete_requests.size();
+	for(quint32 i = 0; i < delete_size; ++i){
+		query.clear();
+		query.prepare(QString("DELETE FROM books WHERE id = ") + QString::number(m_delete_requests[i]));
+		if(!query.exec()){
+			QMessageBox::critical(0, QObject::tr("Database Deleting Error"),
+								  query.lastError().text() +
+								  QString("\nRequest: ")+
+								  query.lastQuery());
 		}
 	}
 }
@@ -354,4 +373,27 @@ void MainWindow::on_pushButton_save_clicked()
 	pushContainer2DB();
 	pushDB2Container();
 	pushContainer2UI();
+	ui->pushButton_delete->setEnabled(true);
+	ui->pushButton_add->setEnabled(true);
+	ui->pushButton_edit->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_delete_clicked()
+{
+	qint32 selected_row = -1;
+	QTableWidgetItem *pItem = 0;
+	QList<QTableWidgetItem *> selecteditems = ui->tableWidget->selectedItems();
+	if(selecteditems.size()){
+		pItem = *(selecteditems.begin());
+		selected_row = pItem->row();
+	}
+	if(selected_row > -1){
+		m_delete_requests.push_back(ui->tableWidget->item(selected_row,0)->text().toInt());
+		for(quint8 i = 0; i < 13; ++i){
+			ui->tableWidget->item(selected_row, i)->setBackgroundColor(Qt::red);
+		}
+	}
+	ui->pushButton_delete	->setEnabled(false);
+	ui->pushButton_add		->setEnabled(false);
+	ui->pushButton_edit		->setEnabled(false);
 }
