@@ -22,19 +22,21 @@ public:
 	void show_me(bool flag);
 
 private slots:
-    void on_buttonBox_accepted();
+	void on_buttonBox_accepted();
+
+	void on_checkBox_paid_clicked();
 
 signals:
-    void request_recort_push(bool flag);
+	void request_recort_push(bool flag);
 
 protected:
-    void pullInput2sh_rec();
+	void pullInput2sh_rec();
 
 private:
 	Ui::Dialog_Edit *ui;
 	Settings *p_settings;
 	accounting_record *mp_acc_rec_inoming;
-
+	bool m_enable_sending;
 };
 
 #endif // DIALOG_EDIT_H

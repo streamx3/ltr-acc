@@ -27,13 +27,17 @@ public:
 private slots:
 	void on_ExitButton_clicked();
 	void show_me(bool flag);
-    void pushUI2Container();
+	void pushShared2Container();
 	void on_pushButton_edit_clicked();
+
+	void on_pushButton_add_clicked();
+
+	void on_pushButton_save_clicked();
 
 protected:
 	void pushDB2Container();
-    void pushContainer2UI();
-    void pushContainer2DB();
+	void pushContainer2UI();
+	void pushContainer2DB();
 
 private:
 	Ui::MainWindow *ui;

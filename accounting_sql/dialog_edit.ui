@@ -30,26 +30,103 @@
     <normaloff>:/images/book-icon.png</normaloff>:/images/book-icon.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="8" colspan="2">
-    <widget class="QLineEdit" name="lineEdit_phone"/>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Nane</string>
+     </property>
+    </widget>
    </item>
    <item row="7" column="2" colspan="8">
     <widget class="QTextEdit" name="textEdit_Remarks"/>
    </item>
-   <item row="6" column="2" colspan="8">
-    <widget class="QLineEdit" name="lineEdit_tracking_number"/>
+   <item row="3" column="4">
+    <widget class="QLabel" name="label_7">
+     <property name="text">
+      <string>Part 2</string>
+     </property>
+    </widget>
    </item>
-   <item row="4" column="3" colspan="4">
-    <widget class="QDateTimeEdit" name="dateTimeEdit_paid">
-     <property name="displayFormat">
-      <string>M/d/yy HH:mm</string>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>City</string>
      </property>
     </widget>
    </item>
    <item row="0" column="1" colspan="5">
     <widget class="QDateTimeEdit" name="dateTimeEdit_order_date">
+     <property name="minimumDate">
+      <date>
+       <year>2013</year>
+       <month>1</month>
+       <day>1</day>
+      </date>
+     </property>
      <property name="displayFormat">
       <string>M/d/yy HH:mm</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3" colspan="4">
+    <widget class="QDateTimeEdit" name="dateTimeEdit_paid">
+     <property name="minimumDate">
+      <date>
+       <year>2013</year>
+       <month>1</month>
+       <day>1</day>
+      </date>
+     </property>
+     <property name="displayFormat">
+      <string>M/d/yy HH:mm</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="3">
+    <widget class="QSpinBox" name="spinBox_part1">
+     <property name="maximum">
+      <number>10000</number>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2" colspan="8">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="9">
+    <widget class="QLineEdit" name="lineEdit_name"/>
+   </item>
+   <item row="5" column="3" colspan="4">
+    <widget class="QDateTimeEdit" name="dateTimeEdit_sent">
+     <property name="minimumDate">
+      <date>
+       <year>2013</year>
+       <month>1</month>
+       <day>1</day>
+      </date>
+     </property>
+     <property name="displayFormat">
+      <string>M/d/yy HH:mm</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkBox_sent">
+     <property name="text">
+      <string>Sent</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6" colspan="2">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Phone</string>
      </property>
     </widget>
    </item>
@@ -57,27 +134,6 @@
     <widget class="QLabel" name="label_6">
      <property name="text">
       <string>Part 1</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="3" colspan="4">
-    <widget class="QDateTimeEdit" name="dateTimeEdit_sent">
-     <property name="displayFormat">
-      <string>M/d/yy HH:mm</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0">
-    <widget class="QLabel" name="label_10">
-     <property name="text">
-      <string>Remarks</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0" colspan="2">
-    <widget class="QLabel" name="label_8">
-     <property name="text">
-      <string>Waybill N.</string>
      </property>
     </widget>
    </item>
@@ -95,32 +151,6 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1" colspan="3">
-    <widget class="QSpinBox" name="spinBox_part1"/>
-   </item>
-   <item row="2" column="9">
-    <widget class="QSpinBox" name="spinBox_NP_Dept_No"/>
-   </item>
-   <item row="3" column="4">
-    <widget class="QLabel" name="label_7">
-     <property name="text">
-      <string>Part 2</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1" colspan="6">
-    <widget class="QLineEdit" name="lineEdit_city"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_4">
-     <property name="text">
-      <string>City</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1" colspan="9">
-    <widget class="QLineEdit" name="lineEdit_name"/>
-   </item>
    <item row="2" column="7" colspan="2">
     <widget class="QLabel" name="label_5">
      <property name="text">
@@ -128,39 +158,36 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_2">
+   <item row="6" column="0" colspan="2">
+    <widget class="QLabel" name="label_8">
      <property name="text">
-      <string>Nane</string>
+      <string>Waybill N.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_10">
+     <property name="text">
+      <string>Remarks</string>
      </property>
     </widget>
    </item>
    <item row="3" column="5" colspan="3">
-    <widget class="QSpinBox" name="spinBox_part2"/>
-   </item>
-   <item row="5" column="0" colspan="3">
-    <widget class="QCheckBox" name="checkBox_sent">
-     <property name="text">
-      <string>Sent</string>
+    <widget class="QSpinBox" name="spinBox_part2">
+     <property name="maximum">
+      <number>10000</number>
      </property>
     </widget>
    </item>
-   <item row="0" column="6" colspan="2">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>Phone</string>
+   <item row="2" column="9">
+    <widget class="QSpinBox" name="spinBox_NP_Dept_No">
+     <property name="maximum">
+      <number>250</number>
      </property>
     </widget>
    </item>
-   <item row="8" column="2" colspan="8">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
+   <item row="0" column="8" colspan="2">
+    <widget class="QLineEdit" name="lineEdit_phone"/>
    </item>
    <item row="8" column="0">
     <widget class="QLabel" name="label_id">
@@ -205,6 +232,12 @@
       <string>0</string>
      </property>
     </widget>
+   </item>
+   <item row="6" column="2" colspan="8">
+    <widget class="QLineEdit" name="lineEdit_tracking_number"/>
+   </item>
+   <item row="2" column="1" colspan="6">
+    <widget class="QLineEdit" name="lineEdit_city"/>
    </item>
   </layout>
  </widget>
