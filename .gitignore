@@ -5,4 +5,5 @@ Makefile
 *.o
 ui_*.c
 ui_*.h
+qrc*.cpp
 

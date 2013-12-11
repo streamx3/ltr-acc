@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->tableWidget->setColumnWidth(12,500);
 
 	ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
-
+	ui->pushButton_stats->setEnabled(false);
 	m_dialog_edit.bindRecStr(&m_acc_rec_shared);
 	m_num_of_records = 0;
 	QObject::connect(&m_dialog_edit, SIGNAL(request_recort_push(bool)), SLOT(pushShared2Container()));
