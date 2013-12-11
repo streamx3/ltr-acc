@@ -22,22 +22,22 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	ui->tableWidget->setColumnCount(13);
 
-	QTableWidgetItem* user_item = new QTableWidgetItem();
-	QTableWidgetItem* phone_item = new QTableWidgetItem();
-	QTableWidgetItem* paid_item = new QTableWidgetItem();
-	QTableWidgetItem* paid_t_item = new QTableWidgetItem();
-	QTableWidgetItem* sent_item = new QTableWidgetItem();
-	QTableWidgetItem* sent_t_item = new QTableWidgetItem();
-	QTableWidgetItem* notes_item = new QTableWidgetItem();
+	QTableWidgetItem* user_item		= new QTableWidgetItem();
+	QTableWidgetItem* phone_item	= new QTableWidgetItem();
+	QTableWidgetItem* paid_item		= new QTableWidgetItem();
+	QTableWidgetItem* paid_t_item	= new QTableWidgetItem();
+	QTableWidgetItem* sent_item		= new QTableWidgetItem();
+	QTableWidgetItem* sent_t_item	= new QTableWidgetItem();
+	QTableWidgetItem* notes_item	= new QTableWidgetItem();
 
-	user_item->setIcon(*(new QIcon(QString(":/images/user-female.png"))));
-	phone_item->setIcon(*(new QIcon(QString(":/images/mobile-phone.png"))));
-	paid_item->setIcon(*(new QIcon(QString(":/images/coins.png"))));
-	paid_t_item->setIcon(*(new QIcon(QString(":/images/clock-coin.png"))));
-	sent_item->setIcon(*(new QIcon(QString(":/images/box--arrow.png"))));
-	sent_t_item->setIcon(*(new QIcon(QString(":/images/clock--arrow.png"))));
-	notes_item->setIcon(*(new QIcon(QString(":/images/document--pencil.png"))));
-	notes_item->setTextAlignment(Qt::AlignLeft);
+	user_item	->setIcon(*(new QIcon(QString(":/images/user-female.png"))));
+	phone_item	->setIcon(*(new QIcon(QString(":/images/mobile-phone.png"))));
+	paid_item	->setIcon(*(new QIcon(QString(":/images/coins.png"))));
+	paid_t_item	->setIcon(*(new QIcon(QString(":/images/clock-coin.png"))));
+	sent_item	->setIcon(*(new QIcon(QString(":/images/box--arrow.png"))));
+	sent_t_item	->setIcon(*(new QIcon(QString(":/images/clock--arrow.png"))));
+	notes_item	->setIcon(*(new QIcon(QString(":/images/document--pencil.png"))));
+	notes_item	->setTextAlignment(Qt::AlignLeft);
 
 	ui->tableWidget->setHorizontalHeaderItem(2, user_item);
 	ui->tableWidget->setHorizontalHeaderItem(3, phone_item);
@@ -140,31 +140,31 @@ void MainWindow::pushDB2Container(){
 	while (query.next())
 	{
 		//id
-		local_record.id = query.value(0).toInt();
+		local_record.id			= query.value(0).toInt();
 		//order_date
-		local_record.order_date = query.value(1).toDateTime();
+		local_record.order_date	= query.value(1).toDateTime();
 		//name
-		local_record.name = query.value(2).toString();
+		local_record.name		= query.value(2).toString();
 		//phone
-		local_record.phone = query.value(3).toString();
+		local_record.phone		= query.value(3).toString();
 		//city
-		local_record.city = query.value(4).toString();
+		local_record.city		= query.value(4).toString();
 		//NP DeptNumber
-		local_record.np_dept = query.value(5).toInt();
+		local_record.np_dept	= query.value(5).toInt();
 		//order_1
-		local_record.order_1 = query.value(6).toInt();
+		local_record.order_1	= query.value(6).toInt();
 		//order_2
-		local_record.order_2 = query.value(7).toInt();
+		local_record.order_2	= query.value(7).toInt();
 		//paid
-		local_record.paid = query.value(8).toInt() ? Qt::Checked : Qt::Unchecked;
+		local_record.paid		= query.value(8).toInt() ? Qt::Checked : Qt::Unchecked;
 		//paid time
-		local_record.paid_time = query.value(9).toDateTime();
+		local_record.paid_time	= query.value(9).toDateTime();
 		//sent
-		local_record.sent = query.value(10).toInt() ? Qt::Checked : Qt::Unchecked;
+		local_record.sent		= query.value(10).toInt() ? Qt::Checked : Qt::Unchecked;
 		//sent time
-		local_record.sent_time = query.value(11).toDateTime();
+		local_record.sent_time	= query.value(11).toDateTime();
 		//remarks
-		local_record.remarks = query.value(12).toString();
+		local_record.remarks	= query.value(12).toString();
 
 		m_records.push_back(local_record);
 		index++;
