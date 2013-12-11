@@ -3,3 +3,6 @@ build*
 Makefile
 *moc*
 *.o
+ui_*.c
+ui_*.h
+
