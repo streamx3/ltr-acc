@@ -72,12 +72,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ExitButton_clicked()
 {
-	/// TODO: Add confirmation
-	if(mp_db != 0){
-		mp_db->close();
+	QMessageBox msgBox;
+	msgBox.setWindowTitle("Confirm Quit");
+	msgBox.setIcon(QMessageBox::Question);
+	msgBox.setWindowIcon(QIcon(":/images/book-icon.png"));
+	msgBox.setText("You are about to leave. Are you sure?");
+	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+	msgBox.setDefaultButton(QMessageBox::No);
+
+	if(msgBox.exec() == QMessageBox::Yes){
+		if(mp_db != 0){
+			mp_db->close();
+		}
+		qApp->quit();
+		close();
 	}
-	close();
-	qApp->quit();
 }
 
 void MainWindow::bindSettings(Settings *inc_settings){
