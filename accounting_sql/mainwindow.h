@@ -9,6 +9,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QMessageBox>
 #include <QMainWindow>
+#include <QCloseEvent>
 
 namespace Ui {
 	class MainWindow;

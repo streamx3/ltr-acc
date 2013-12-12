@@ -402,7 +402,7 @@ void MainWindow::on_pushButton_delete_clicked()
 	m_changes_not_saved = true;
 }
 
-void MainWindow::closeEvent( QCloseEvent *event ){
+void MainWindow::closeEvent( QCloseEvent *_e ){
 	if( m_changes_not_saved ){
 		QMessageBox msgBox;
 		msgBox.setWindowTitle( "Confirm Quit" );
@@ -413,12 +413,12 @@ void MainWindow::closeEvent( QCloseEvent *event ){
 		msgBox.setDefaultButton( QMessageBox::No );
 
 		if( msgBox.exec() == QMessageBox::No ){
-			return;
+			_e->ignore();
+			goto GTFO;
 		}
 	}
 	if( mp_db != 0 ){
 		mp_db->close();
 	}
-	qApp->quit();
-	close();
+	GTFO:;
 }
