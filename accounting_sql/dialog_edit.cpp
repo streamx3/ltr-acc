@@ -48,7 +48,7 @@ void Dialog_Edit::show_me(bool flag){
 		ui->spinBox_part2->setValue(mp_acc_rec_inoming->order_2);
 		ui->spinBox_NP_Dept_No->setValue(mp_acc_rec_inoming->np_dept);
 
-		m_enable_sending = mp_acc_rec_inoming->sent == Qt::Checked;
+		m_enable_sending = mp_acc_rec_inoming->paid == Qt::Checked;
 		ui->checkBox_sent->setEnabled(m_enable_sending);
 		ui->dateTimeEdit_sent->setEnabled(m_enable_sending);
 		show();

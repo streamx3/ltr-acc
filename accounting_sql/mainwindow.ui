@@ -125,13 +125,6 @@
         </property>
        </spacer>
       </item>
-      <item>
-       <widget class="QPushButton" name="ExitButton">
-        <property name="text">
-         <string>Exit</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
    </layout>

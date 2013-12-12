@@ -31,7 +31,7 @@ signals:
 
 private:
 	Ui::Dialog_SelectDB *ui;
-	Settings *p_settings;
+	Settings *mp_settings;
 	QSqlDatabase *mp_db;
 };
 

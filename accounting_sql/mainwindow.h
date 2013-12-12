@@ -11,7 +11,7 @@
 #include <QMainWindow>
 
 namespace Ui {
-class MainWindow;
+	class MainWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -19,14 +19,13 @@ class MainWindow : public QMainWindow
 	Q_OBJECT
 
 public:
-	explicit MainWindow(QWidget *parent = 0);
-	void bindSettings(Settings *inc_settings);
-	void bindDatabase(QSqlDatabase *p_db);
+	explicit MainWindow( QWidget *parent = 0 );
+	void bindSettings( Settings *inc_settings );
+	void bindDatabase( QSqlDatabase *p_db );
 	~MainWindow();
 
 private slots:
-	void on_ExitButton_clicked();
-	void show_me(bool flag);
+	void show_me( bool flag );
 	void pushShared2Container();
 	void on_pushButton_edit_clicked();
 
@@ -40,17 +39,25 @@ protected:
 	void pushDB2Container();
 	void pushContainer2UI();
 	void pushContainer2DB();
+	void closeEvent( QCloseEvent *event );
 
 private:
 	Ui::MainWindow *ui;
 	Settings *p_settings;
 	QSqlDatabase *mp_db;
 	QStringList ColumnNames;
-	QVector<quint32> m_delete_requests;
+	QVector< quint32 > m_delete_requests;
 	Dialog_Edit m_dialog_edit;
 	accounting_record m_acc_rec_shared;
 	int m_num_of_records;
-	QList<accounting_record> m_records;
+	QList< accounting_record > m_records;
+	QBrush m_brush_default;
+	QBrush m_brush_delete;
+	QBrush m_brush_not_sent;
+	//QBrush m_brush_not_saved;
+
+	Qt::ItemFlags m_ro_item_flags;
+	bool m_changes_not_saved;
 
 };
 

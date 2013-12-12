@@ -16,7 +16,7 @@ Dialog_SelectDB::~Dialog_SelectDB()
 
 void Dialog_SelectDB::bindSettings(Settings *inc_settings){
 	if(inc_settings != 0)
-		p_settings = inc_settings;
+		mp_settings = inc_settings;
 }
 
 void Dialog_SelectDB::on_buttonBox_rejected()
@@ -24,7 +24,6 @@ void Dialog_SelectDB::on_buttonBox_rejected()
 	close();
 	qApp->exit();
 }
-
 
 void Dialog_SelectDB::on_buttonBox_accepted()
 {
