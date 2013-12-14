@@ -39,7 +39,7 @@ void Dialog_Edit::show_me(bool flag){
 		ui->lineEdit_phone->setText(mp_acc_rec_inoming->phone);
 		ui->lineEdit_city->setText(mp_acc_rec_inoming->city);
 		ui->lineEdit_name->setText(mp_acc_rec_inoming->name);
-		ui->lineEdit_tracking_number->setText("N/A");
+		ui->lineEdit_tracking_number->setText(mp_acc_rec_inoming->waybill);
 		ui->label_id->setText(mp_acc_rec_inoming->id >0 ? QString("id: ")+
 							  QString::number(mp_acc_rec_inoming->id) : "New record");
 		ui->textEdit_Remarks->setText(mp_acc_rec_inoming->remarks);
@@ -89,6 +89,8 @@ void Dialog_Edit::pullInput2sh_rec(){
 		mp_acc_rec_inoming->sent_time   = ui->dateTimeEdit_sent->dateTime();
 		//remarks
 		mp_acc_rec_inoming->remarks     = ui->textEdit_Remarks->toPlainText();
+		//waybill
+		mp_acc_rec_inoming->waybill     = ui->lineEdit_tracking_number->text();
 	}
 };
 

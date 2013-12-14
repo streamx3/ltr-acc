@@ -20,7 +20,9 @@ int main(int argc, char *argv[])
 	Dialog_SelectDB dialog_select_db1;
 	QObject::connect(&dialog_select_db1, SIGNAL(call_main_window(bool)), &main_window, SLOT(show_me(bool)));
 	main_window.bindDatabase(&db);
+	main_window.bindSettings(&settings1);
 	dialog_select_db1.bindDatabase(&db);
+	dialog_select_db1.bindSettings(&settings1);
 
 
 	dialog_select_db1.show();

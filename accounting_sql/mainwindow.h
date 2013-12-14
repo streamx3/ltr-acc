@@ -50,7 +50,7 @@ private:
 	QVector< quint32 > m_delete_requests;
 	Dialog_Edit m_dialog_edit;
 	accounting_record m_acc_rec_shared;
-	int m_num_of_records;
+	quint32 m_num_of_records;
 	QList< accounting_record > m_records;
 	QBrush m_brush_default;
 	QBrush m_brush_delete;

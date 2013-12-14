@@ -155,6 +155,8 @@ void MainWindow::pushDB2Container(){
 		local_record.sent_time	= query.value( 11 ).toDateTime();
 		//remarks
 		local_record.remarks	= query.value( 12 ).toString();
+		//remarks
+		local_record.waybill	= query.value( 13 ).toString();
 
 		m_records.push_back( local_record );
 		index++;
@@ -295,15 +297,16 @@ void MainWindow::pushContainer2DB(){
 								  "paid_time  = :paid_time, "
 								  "sent       = :sent, "
 								  "sent_time  = :sent_time, "
-								  "remarks    = :remarks "
+								  "remarks    = :remarks, "
+								  "waybill    = :waybill "
 								  "WHERE id = ")
 						  + QString::number( p_rec->id ) );
 		}
 		// Add
 		else{
 			query.prepare( QString( "INSERT INTO " ) + db_name +
-										  ( " ( order_time,  name,  phone,  city,  np_dept,  order_1,  order_2,  paid,  paid_time,  sent,  sent_time,  remarks)"
-							  "VALUES (       :order_time, :name, :phone, :city, :np_dept, :order_1, :order_2, :paid, :paid_time, :sent, :sent_time, :remarks)" ) );
+										  ( " ( order_time,  name,  phone,  city,  np_dept,  order_1,  order_2,  paid,  paid_time,  sent,  sent_time,  remarks, waybill )"
+							  "VALUES (       :order_time, :name, :phone, :city, :np_dept, :order_1, :order_2, :paid, :paid_time, :sent, :sent_time, :remarks, :waybill )" ) );
 		}
 		query.bindValue( ":order_time",	p_rec->order_date );
 		query.bindValue( ":name",		p_rec->name );
@@ -317,6 +320,7 @@ void MainWindow::pushContainer2DB(){
 		query.bindValue( ":paid_time",	p_rec->paid_time );
 		query.bindValue( ":sent_time",	p_rec->sent_time );
 		query.bindValue( ":remarks",	p_rec->remarks );
+		query.bindValue( ":waybill",	p_rec->waybill );
 		if( !query.exec() ){
 			QMessageBox::critical( 0, QObject::tr( "Database Writing Error" ),
 					  query.lastError().text() );
@@ -365,7 +369,7 @@ void MainWindow::on_pushButton_add_clicked()
 	//remarks
 	m_acc_rec_shared.remarks.clear();
 	//waybill
-	m_acc_rec_shared.tracking_number.clear();
+	m_acc_rec_shared.waybill.clear();
 
 	m_dialog_edit.show_me( true );
 }

@@ -36,7 +36,7 @@ struct accounting_record{
 	Qt::CheckState	sent;
 	QDateTime		sent_time;
 	QString			remarks;
-	QString			tracking_number;
+	QString			waybill;
 };
 
 #endif // ACCOUNTING_RECORD_STRUCT_H

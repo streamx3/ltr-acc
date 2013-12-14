@@ -20,6 +20,7 @@ public:
 	explicit Dialog_SelectDB(QWidget *parent = 0);
 	void bindSettings(Settings *inc_settings);
 	void bindDatabase(QSqlDatabase *p_db);
+	void show();
 	~Dialog_SelectDB();
 
 private slots:
@@ -27,7 +28,7 @@ private slots:
 	void on_buttonBox_accepted();
 
 signals:
-	void call_main_window(bool flag);
+	void call_main_window( bool flag );
 
 private:
 	Ui::Dialog_SelectDB *ui;
