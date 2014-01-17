@@ -7,6 +7,12 @@
 #include <QSettings>
 #include <QFile>
 
+#include <unistd.h> // to use config in user's home folder
+#include <sys/types.h>
+#include <pwd.h>
+#include <stdio.h>
+#include <string>
+
 enum DB_Type{
 	e_db_Unknown = 0,
 	e_db_SQL,

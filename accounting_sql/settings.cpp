@@ -14,7 +14,16 @@ Settings::Settings(){
 
 	m_remember_password = false;
 
-	m_conf_file.setFileName("config.ini");
+	struct passwd *pw = getpwuid(getuid());
+
+	const char *homedir = pw->pw_dir;
+	char filename[512] = { 0 };
+	strcpy(filename, homedir);
+	strcat(filename, "/.ltr-acc/config.ini");
+	if( 0 != access( filename, 0 ) ){
+		strcpy(filename, "config.ini");
+	}
+	m_conf_file.setFileName(filename);
 	mp_qsettings = new QSettings( m_conf_file.fileName(), QSettings::NativeFormat );
 	readConfigFile();
 }
