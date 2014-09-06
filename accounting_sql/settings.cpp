@@ -14,6 +14,7 @@ Settings::Settings(){
 
 	m_remember_password = false;
 
+#ifndef Q_WS_WIN
 	struct passwd *pw = getpwuid(getuid());
 
 	const char *homedir = pw->pw_dir;
@@ -24,6 +25,9 @@ Settings::Settings(){
 		strcpy(filename, "config.ini");
 	}
 	m_conf_file.setFileName(filename);
+ #else
+    m_conf_file.setFileName("config.ini");
+#endif
 	mp_qsettings = new QSettings( m_conf_file.fileName(), QSettings::NativeFormat );
 	readConfigFile();
 }
