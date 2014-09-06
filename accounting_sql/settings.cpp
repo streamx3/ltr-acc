@@ -14,7 +14,7 @@ Settings::Settings(){
 
 	m_remember_password = false;
 
-#ifndef Q_WS_WIN
+#ifndef Q_OS_WIN32
 	struct passwd *pw = getpwuid(getuid());
 
 	const char *homedir = pw->pw_dir;
