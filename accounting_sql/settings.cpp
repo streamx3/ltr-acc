@@ -28,7 +28,7 @@ Settings::Settings(){
  #else
     m_conf_file.setFileName("config.ini");
 #endif
-	mp_qsettings = new QSettings( m_conf_file.fileName(), QSettings::NativeFormat );
+    mp_qsettings = new QSettings( m_conf_file.fileName(), QSettings::IniFormat );
 	readConfigFile();
 }
 
